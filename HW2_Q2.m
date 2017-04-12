@@ -53,3 +53,21 @@ for i = 1 : test_num
     imshow(test_spectrogram_image);
 end
 
+for i = 1 : test_num
+    test_file = ['test_spectrogram/test_spectrogram_', num2str(i), '.png'];
+    test_spectrogram_image = imread(test_file);
+    subplot(2,2,i);
+    if(i==1)
+       imshow(test_spectrogram_image);
+       title('guitar');
+    elseif(i==2)
+       imshow(test_spectrogram_image);
+       title('piano');
+    elseif(i==3)
+       imshow(test_spectrogram_image);
+       title('violin');
+    else
+       imshow(test_spectrogram_image);
+       title('drum');
+    end
+end

@@ -38,14 +38,20 @@ N = 10001;
 figure
 plot((0:1/fs:1/fs*(N-1)), low_pass_filter, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('Low filter(0~400 HZ) Time domain', 'fontsize', titlefont);
+xlabel('time');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 figure
 plot((0:1/fs:1/fs*(N-1)), high_pass_filter, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('High filter(800up HZ) Time domain', 'fontsize', titlefont);
+xlabel('time');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 figure
 plot((0:1/fs:1/fs*(N-1)), bandpass_filter, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('Bandpass filter(400~800 HZ) Time domain', 'fontsize', titlefont);
+xlabel('time');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 
 %%% Plot the spectrum of filters (Frequency Analysis)
@@ -53,16 +59,22 @@ figure
 [frequency_low, magnitude_low] = make_spectrum(low_pass_filter, fs);
 plot(frequency_low, magnitude_low, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('Low filter(0~400 HZ) spectrum', 'fontsize', titlefont);
+xlabel('frequency');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 figure
 [frequency_high, magnitude_high] = make_spectrum(high_pass_filter, fs);
 plot(frequency_high, magnitude_high, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('High filter(800up HZ) spectrum', 'fontsize', titlefont);
+xlabel('frequency');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 figure
 [frequency_bp, magnitude_bp] = make_spectrum(bandpass_filter, fs);
 plot(frequency_bp, magnitude_bp, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('Bandpass filter(400~800 HZ) spectrum', 'fontsize', titlefont);
+xlabel('frequency');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 
 %% 3. Save the filtered audio (audiowrite)
@@ -80,14 +92,20 @@ figure
 [frequency_low_s, magnitude_low_s] = make_spectrum(low_pass_output, fs);
 plot(frequency_low_s, magnitude_low_s, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('Low filtered(0~400 HZ) signals', 'fontsize', titlefont);
+xlabel('frequency');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 figure
 [frequency_high_s, magnitude_high_s] = make_spectrum(high_pass_output, fs);
 plot(frequency_high_s, magnitude_high_s, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('High filtered(800up HZ) signals', 'fontsize', titlefont);
+xlabel('frequency');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
 figure
 [frequency_bp_s, magnitude_bp_s] = make_spectrum(bandpass_output, fs);
 plot(frequency_bp_s, magnitude_bp_s, 'LineSmoothing', 'on', 'LineWidth', LineWidth);
 title('Bandpass filtered(400~800 HZ) signals', 'fontsize', titlefont);
+xlabel('frequency');
+ylabel('magnitude');
 set(gca, 'fontsize', fontsize)
